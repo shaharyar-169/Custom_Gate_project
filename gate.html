@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HTML Structure</title>
+
+    <!-- Add your CSS file or style here -->
+    <link rel="stylesheet" href="Svg.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <h1 class="main-heading">custom Gate</h1>
+        <p class="para-heading">9ft 9in Wide, Slide Kit, Dual Panels, DIY Wood, Automatic Access, ~421lbs</p>
+        <div class="row-styling">
+            <div class="fist-col" >
+                <svg  width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Main rectangle -->
+                    <rect id="mainRect" x="65" y="50" width="220" height="200" stroke="black" stroke-width="4"
+                        fill="none" />
+
+                    <!-- Horizontal line inside the rectangle -->
+                    <line id="innerLine" x1="65" y1="200" x2="285" y2="200" stroke="black" stroke-width="4" />
+
+                    <!-- Left dimension lines -->
+                    <line id="leftTopLine" x1="40" y1="50" x2="40" y2="130" stroke="black" stroke-width="1.5" />
+                    <line id="leftBottomLine" x1="40" y1="170" x2="40" y2="250" stroke="black" stroke-width="1.5" />
+                    <line id="leftEndTop" x1="30" y1="50" x2="50" y2="50" stroke="black" stroke-width="1.5" />
+                    <line id="leftEndBottom" x1="30" y1="250" x2="50" y2="250" stroke="black" stroke-width="1.5" />
+                    <text id="leftText" x="35" y="155" font-family="Arial" font-size="14">6'</text>
+
+                    <!-- Bottom dimension lines -->
+                    <line id="bottomLineLeft" x1="65" y1="290" x2="140" y2="290" stroke="black" stroke-width="1.5" />
+                    <line id="bottomLineRight" x1="195" y1="290" x2="285" y2="290" stroke="black" stroke-width="1.5" />
+                    <line id="bottomEndLeft" x1="65" y1="280" x2="65" y2="300" stroke="black" stroke-width="1.5" />
+                    <line id="bottomEndRight" x1="285" y1="280" x2="285" y2="300" stroke="black" stroke-width="1.5" />
+                    <text id="bottomText" x="155" y="295" font-family="Arial" font-size="14">6' 3"</text>
+
+                    <!-- Vertical line at dynamic position -->
+                    <line id="verticalLine" x1="200" y1="50" x2="200" y2="250" stroke="black" stroke-width="8"
+                        visibility="hidden" />
+                </svg>
+
+            </div>
+            <div class="second-col">
+                <!-- RANGE FILTER -->
+                <div class="range-filter-div">
+
+                    <div class="inner-container-style">
+                        <div>
+                            <label for="vol" id="volLabel" class="price">$0</label><br />
+                        </div>
+                        <div>
+                            <span class="count">1</span>
+                            <span class="widthstyling">Width</span>
+                        </div>
+                        <div>
+                            <label style="color:green" class="icon-styling" for="vol" id="volLabel">$0</label><br />
+                        </div>
+                        <!-- <label for="vol" id="volLabel" class="price">$0</label><br/> -->
+                    </div>
+                    <input class="slider" type="range" id="vol" name="vol" value="60"  oninput="updateSVG(this.value)">
+
+                </div>
+                <!-- KIT FILTER -->
+                <div class="kit-filter-div">
+
+                    <div class="inner-container-style">
+                        <div>
+                            <label for="vol" id="volLabel" class="price">$0</label><br />
+                        </div>
+                        <div>
+                            <span class="count">2</span>
+                            <span class="widthstyling">Kit</span>
+                        </div>
+                        <div>
+                            <label style="color:green" class="icon-styling" for="vol" id="volLabel">$0</label><br />
+                        </div>
+                        <!-- <label for="vol" id="volLabel" class="price">$0</label><br/> -->
+                    </div>
+                    <div class="kit-container">
+                        <div class="kit-inner active" onclick="updateFilter('none')">None</div>
+                        <div class="kit-inner" onclick="updateFilter('swing')">Swing</div>
+                        <div class="kit-inner" onclick="updateFilter('slide')">Slide</div>
+
+                    </div>
+                </div>
+
+                <!-- PANEL  FILTER -->
+                <div class="panel-filter-div">
+
+                    <div class="inner-container-style">
+                        <div>
+                            <label for="vol" id="volLabel" class="price">$0</label><br />
+                        </div>
+                        <div>
+                            <span class="count">3</span>
+                            <span class="widthstyling">Panels</span>
+                        </div>
+                        <div>
+                            <label style="color:green" class="icon-styling" for="vol" id="volLabel">$0</label><br />
+                        </div>
+                        <!-- <label for="vol" id="volLabel" class="price">$0</label><br/> -->
+                    </div>
+                    <div class="kit-container">
+                        <div class="panel-inner active">Solo</div>
+                        <div class="panel-inner" onclick="updateFilter('dual')">Dual</div>
+
+
+                    </div>
+                </div>
+
+                <!-- STYLE  FILTER -->
+                <div class="kit-filter-div">
+
+                    <div class="inner-container-style">
+                        <div>
+                            <label for="vol" id="volLabel" class="price">$0</label><br />
+                        </div>
+                        <div>
+                            <span class="count">4</span>
+                            <span class="widthstyling">Style</span>
+                        </div>
+                        <div>
+                            <label style="color:green" class="icon-styling" for="vol" id="volLabel">$0</label><br />
+                        </div>
+                        <!-- <label for="vol" id="volLabel" class="price">$0</label><br/> -->
+                    </div>
+                    <div class="kit-container">
+                        <div class="style-inner active">None</div>
+                        <div class="style-inner" onclick="updateFilter('arch')">Arch</div>
+                        <div class="style-inner" onclick="updateFilter('finials')">Finials</div>
+                        <div class="style-inner">Both</div>
+
+                    </div>
+                </div>
+
+                <!-- PICKETS  FILTER -->
+                <div class="kit-filter-div">
+
+                    <div class="inner-container-style">
+                        <div>
+                            <label for="vol" id="volLabel" class="price">$0</label><br />
+                        </div>
+                        <div>
+                            <span class="count">5</span>
+                            <span class="widthstyling">PIckets</span>
+                        </div>
+                        <div>
+                            <label style="color:green" class="icon-styling" for="vol" id="volLabel">$0</label><br />
+                        </div>
+                        <!-- <label for="vol" id="volLabel" class="price">$0</label><br/> -->
+                    </div>
+                    <div class="kit-container">
+                        <div class="pickets-inner active">None</div>
+                        <div class="pickets-inner">Single</div>
+                        <div class="pickets-inner">Puppy</div>
+                        <div class="pickets-inner" onclick="updateFilter('doublepickets')">Double</div>
+
+                    </div>
+                </div>
+
+                <!-- IRONWOOD  FILTER -->
+                <div class="kit-filter-div">
+
+                    <div class="inner-container-style">
+                        <div>
+                            <label for="vol" id="volLabel" class="price">$0</label><br />
+                        </div>
+                        <div>
+                            <span class="count">6</span>
+                            <span class="widthstyling">Ironwood</span>
+                        </div>
+                        <div>
+                            <label style="color:green" class="icon-styling" for="vol" id="volLabel">$0</label><br />
+                        </div>
+                        <!-- <label for="vol" id="volLabel" class="price">$0</label><br/> -->
+                    </div>
+                    <div class="kit-container">
+                        <div class="ironwood-inner active">None</div>
+                        <div class="ironwood-inner" onclick="updateFilter('verticalwood')">Virtical</div>
+                        <div class="ironwood-inner">Horizontal</div>
+                        <div class="ironwood-inner">DIY</div>
+
+                    </div>
+                </div>
+
+                <!-- Access  FILTER -->
+                <div class="kit-filter-div">
+
+                    <div class="inner-container-style">
+                        <div>
+                            <label for="vol" id="volLabel" class="price">$0</label><br />
+                        </div>
+                        <div>
+                            <span class="count">6</span>
+                            <span class="widthstyling">Ironwood</span>
+                        </div>
+                        <div>
+                            <label style="color:green" class="icon-styling" for="vol" id="volLabel">$0</label><br />
+                        </div>
+                        <!-- <label for="vol" id="volLabel" class="price">$0</label><br/> -->
+                    </div>
+                    <div class="kit-container">
+                        <div class="access-inner active">None</div>
+                        <div class="access-inner">Menual</div>
+                        <div class="access-inner">Automatic</div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Add your JavaScript file or script here -->
+     
+    <script src="Svg.js" defer></script>
+</body>
+
+</html>
